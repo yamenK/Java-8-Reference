@@ -4,7 +4,7 @@ This is my own refernce to the new contructs and features in java 8
 ## Interfaces and Lambda Expressions
 #### Default methods in interfaces
 
-Java 8 has introduced default methods to interfaces. These methods are identical to concrete methods in class. They are declared with the keyword default.
+Java 8 has introduced default methods to interfaces. These methods are identical to concrete methods in classes. They are declared with the keyword default.
 
 ```java
 interface INewInterface{
