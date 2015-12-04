@@ -63,7 +63,7 @@ Runnable is a funtional interface. Thus in java 8 the above code is equivalent t
 new Thread(()->{        
           //Do some stuff
           System.out.println("Hello");
-        }).start
+        }).start();
 ```
 In general, given a funcional interface
 ```java 
