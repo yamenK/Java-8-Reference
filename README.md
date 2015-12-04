@@ -1,5 +1,5 @@
 # Java-8-Reference
-This is my own refernce to new contructs and features in Java8
+This is my own refernce to the new contructs and features in java 8
 
 ## Interfaces and Lambda Expressions
 #### Default methods in interfaces
@@ -65,13 +65,13 @@ new Thread(()->{
           System.out.println("Hello");
         }).start
 ```
-In general, given the following funcional interface
+In general, given a funcional interface
 ```java 
 interface IFuntionalInterface<R,S,T>{
   R funtion(S s, T t); //any number of arguments and any return type
 }
 ```
-The following are all equivalent
+The following ways for creating a concrete instance of the interface are equivalent
 
 ```java
 public class Implementor<R,S,T> implements IFuntionalInterface<R,S,T>{
@@ -83,28 +83,24 @@ public class Implementor<R,S,T> implements IFuntionalInterface<R,S,T>{
   }
 }
 Implementor i = new Implementor();
+i.funtion(s1,t1);
 ```
 
 ```java 
-Implementor i = new Implementor(){
-    @Override                                                            
+IFuntionalInterface i = new Implementor(){
+  @Override                                                            
   public R funtion(S s, T t){
     //do sum stuff example
     R r = new R(s, t);
     return r;
   }
 };
+i.funtion(s1,t1);
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
+```java 
+IFuntionalInterface i = (s,t) -> {   
+    //do sum stuff example
+    R r = new R(s, t);
+    return r;
+};
+```
