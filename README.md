@@ -1,5 +1,5 @@
 # Java8 Reference
-This is my own refernce to the new contructs and features in java 8
+This is my own reference to the new contructs and features in java 8
 
 ## Interfaces and Lambda Expressions
 #### Default methods in interfaces
