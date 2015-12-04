@@ -1,4 +1,4 @@
-# Java-8-Reference
+# Java8 Reference
 This is my own refernce to the new contructs and features in java 8
 
 ## Interfaces and Lambda Expressions
