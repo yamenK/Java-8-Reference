@@ -71,7 +71,7 @@ interface IFuntionalInterface<R,S,T>{
   R funtion(S s, T t); //any number of arguments and any return type
 }
 ```
-The following ways for creating a concrete instance of the interface are equivalent
+The following ways for creating an instance of a concrete class that implements the interface are equivalent
 
 ```java
 public class Implementor<R,S,T> implements IFuntionalInterface<R,S,T>{
