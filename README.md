@@ -104,3 +104,99 @@ IFuntionalInterface i = (s,t) -> {
     return r;
 };
 ```
+
+####Collections, Streams, and Filters
+
+#####Iterating collections
+
+Java8 has added a new method to the Iterable interface; ```forEach(Consumer<? super T> action)``` to simplify the job of iterating over a collection.
+
+```java
+myCollection.forEach(e ->System.out.println(e));
+```
+####Streams
+```java.util.stream``` package in particluar the ```Stream``` interface adds funtional-style operations.
+
+####Filters
+The direct way to loop over a collection and perform some actions on some elements
+```java
+for(E e: myCollection){
+  if(meetsCondition1(e) && meetsCondition2(e)){
+    doSomething(e);
+  }
+}
+```
+With the introduction of streams this can be reduced to a more funtional style code.
+```java
+myColletion.stream()
+          .filter(e -> meetsCondition1(e))
+          .filter(e-> meetsCondition2(e)) //Or can be combined with above
+          .forEach(e -> doSomething(e));
+```
+
+Note: Operations on streams are lazy. They are only executed when a **Terminal operation** such as the ```forEach```is called. Non-terminal operations are refered to as intermediate operations.
+
+
+####Lambda Built-in Functional Interfaces
+Predicate: an expression that returns a boolean.
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+   public boolean test(T t);
+}
+
+Stream<T> filter(Predicate<? super T> predicate)
+```
+Consumer: an expression that performs an action on a passed argument and has a void return type
+```java
+@FunctionalInterface
+public interface Consumer<T> {
+     public void accept(T t);
+}
+```
+
+Funtion: similar to a a Consumer but return a non void type.
+```java
+@FunctionalInterface
+public interface Function<T,R> {
+   public R apply(T t);
+ }
+```
+
+Supplier: returns an object without being supplied an argument
+```java
+@FunctionalInterface
+public interface Supplier<T> {
+   public T get();
+}
+```
+Primitive Interface: A set of primitive interfaces that mirror the above interfaces.These are provided to avoid performance degradation to auto boxing/unboxing.
+example:
+```java
+@FunctionalInterface
+public interface DoubleFunction<R> {
+   public R apply(double value); //This methods accepts a primitive double as input
+}
+```
+Binary Types: Binary version of the standard interfaces.
+```java
+@FunctionalInterface
+public interface BiPredicate<T, U> {
+   public boolean test(T t, U u);
+}
+```
+
+Unary Operator: A special case of ```Funtion``` interface returning the same type as the input
+```java
+@FunctionalInterface
+public interface UnaryOperator<T> extends Function<T,T> {
+     @Override
+     public T apply(T t);
+}
+```
+
+
+
+
+
+
