@@ -138,7 +138,7 @@ Note: Operations on streams are lazy. They are only executed when a **Terminal o
 
 
 ####Lambda Built-in Functional Interfaces
-Predicate: an expression that returns a boolean.
+**Predicate**: an expression that returns a boolean.
 ```java
 @FunctionalInterface
 public interface Predicate<T> {
@@ -147,7 +147,7 @@ public interface Predicate<T> {
 
 Stream<T> filter(Predicate<? super T> predicate)
 ```
-Consumer: an expression that performs an action on a passed argument and has a void return type
+**Consumer**: an expression that performs an action on a passed argument and has a void return type
 ```java
 @FunctionalInterface
 public interface Consumer<T> {
@@ -155,7 +155,7 @@ public interface Consumer<T> {
 }
 ```
 
-Funtion: similar to a a Consumer but return a non void type.
+**Funtion**: similar to a a Consumer but return a non void type.
 ```java
 @FunctionalInterface
 public interface Function<T,R> {
@@ -163,14 +163,14 @@ public interface Function<T,R> {
  }
 ```
 
-Supplier: returns an object without being supplied an argument
+**Supplier**: returns an object without being supplied an argument
 ```java
 @FunctionalInterface
 public interface Supplier<T> {
    public T get();
 }
 ```
-Primitive Interface: A set of primitive interfaces that mirror the above interfaces.These are provided to avoid performance degradation to auto boxing/unboxing.
+**Primitive Interface**: A set of primitive interfaces that mirror the above interfaces.These are provided to avoid performance degradation to auto boxing/unboxing.
 example:
 ```java
 @FunctionalInterface
@@ -178,7 +178,7 @@ public interface DoubleFunction<R> {
    public R apply(double value); //This methods accepts a primitive double as input
 }
 ```
-Binary Types: Binary version of the standard interfaces.
+**Binary Types**: Binary version of the standard interfaces.
 ```java
 @FunctionalInterface
 public interface BiPredicate<T, U> {
@@ -186,7 +186,7 @@ public interface BiPredicate<T, U> {
 }
 ```
 
-Unary Operator: A special case of ```Funtion``` interface returning the same type as the input
+**Unary Operator**: A special case of ```Funtion``` interface returning the same type as the input
 ```java
 @FunctionalInterface
 public interface UnaryOperator<T> extends Function<T,T> {
