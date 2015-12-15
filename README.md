@@ -213,7 +213,30 @@ A Stream is an sequence of elements supporting a set of sequential and parallel 
 
 #####Stream Aggregation Methods
 ```count()``` return number of elements in stream
-```max(Comparator<? super T> comparator)```
+
+```max(Comparator<? super T> comparator)```Returns max element in stream
+
+```min(Comparator<? super T> comparator)```Returns min element in stream
+
+
+#####Sorting
+```sorted()``` Sorts the stream
+
+```sorted(Comaprator<? super T> comparator)``` Sorts the stream
+
+```reversed()``` Reverses the stream
+
+#####Collecting data from stream
+```collect(Collector<? super T,A,R> collector)``` 
+
+```java
+stream().collect(Collectors.toList());
+stream().collect(Collectors.toMap());
+```
+More methods [groupingBy(Function<? super T,? extends K>,  ](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-)
+[joining()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining--),  [partitioningBy(Predicate<? super T> predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-)
+
+
 
 
 
