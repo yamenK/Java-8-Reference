@@ -195,6 +195,21 @@ public interface UnaryOperator<T> extends Function<T,T> {
 }
 ```
 
+####Lamda Operations
+
+A Stream is an sequence of elements supporting a set of sequential and parallel operations. A stream is formed from a collection that represents the source of the stream. A set of intermediate operations(filter(), map(), peek()) is performed on a stream and ended by a terminal function(forEach(), anyMatch()). Note a stream can only be used once(i.e only one terminal operation can be performed on a stream)
+
+#####Transforming a Stream
+```Function<? super T,? extends R> mapper``` performs an operation on a stream and extracts objects.
+
+#####Peeking
+```peek(Consumer<? super T> action)``` performs an action on the stream and return the elements.
+
+#####Searching
+```findFirst(), allMatch()``` ...
+
+#####Optional Class
+```Optional<T>``` A new class that has been introduced to facillate the usual way for guarding against NPE. This class is a wrapper for an object. It may contain a null value. Check javadoc for main methods [isPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#isPresent--), [ifPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#ifPresent-java.util.function.Consumer-), [orElse()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#orElse-T-)
 
 
 
