@@ -211,7 +211,9 @@ A Stream is an sequence of elements supporting a set of sequential and parallel 
 #####Optional Class
 ```Optional<T>``` A new class that has been introduced to facillate the usual way for guarding against NPE. This class is a wrapper for an object. It may contain a null value. Check javadoc for main methods [isPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#isPresent--), [ifPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#ifPresent-java.util.function.Consumer-), [orElse()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#orElse-T-)
 
-
+#####Stream Aggregation Methods
+```count()``` return number of elements in stream
+```max(Comparator<? super T> comparator)```
 
 
 
