@@ -83,7 +83,6 @@ public class Implementor<R,S,T> implements IFuntionalInterface<R,S,T>{
   }
 }
 Implementor i = new Implementor();
-i.funtion(s1,t1);
 ```
 
 ```java 
@@ -95,7 +94,6 @@ IFuntionalInterface i = new Implementor(){
     return r;
   }
 };
-i.funtion(s1,t1);
 ```
 ```java 
 IFuntionalInterface i = (s,t) -> {   
@@ -115,7 +113,7 @@ Java8 has added a new method to the Iterable interface; ```forEach(Consumer<? su
 myCollection.forEach(e ->System.out.println(e));
 ```
 ####Streams
-```java.util.stream``` package in particluar the ```Stream``` interface adds funtional-style operations.
+```java.util.stream``` package in particluar the ```Stream``` interface adds functional-style operations.
 
 ####Filters
 The direct way to loop over a collection and perform some actions on some elements
@@ -155,7 +153,7 @@ public interface Consumer<T> {
 }
 ```
 
-**Funtion**: similar to a a Consumer but return a non void type.
+**Function**: similar to a a Consumer but return a non void type.
 ```java
 @FunctionalInterface
 public interface Function<T,R> {
@@ -170,7 +168,7 @@ public interface Supplier<T> {
    public T get();
 }
 ```
-**Primitive Interface**: A set of primitive interfaces that mirror the above interfaces.These are provided to avoid performance degradation to auto boxing/unboxing.
+**Primitive Interface**: A set of primitive interfaces that mirror the above interfaces.These are provided to avoid performance degradation due to auto boxing/unboxing.
 example:
 ```java
 @FunctionalInterface
@@ -197,7 +195,7 @@ public interface UnaryOperator<T> extends Function<T,T> {
 
 ####Lamda Operations
 
-A Stream is an sequence of elements supporting a set of sequential and parallel operations. A stream is formed from a collection that represents the source of the stream. A set of intermediate operations(filter(), map(), peek()) is performed on a stream and ended by a terminal function(forEach(), anyMatch()). Note a stream can only be used once(i.e only one terminal operation can be performed on a stream)
+A Stream is a sequence of elements supporting a set of sequential and parallel operations. A stream is formed from a collection that represents the source of the stream. A set of intermediate operations(filter(), map(), peek()) is performed on a stream and ended by a terminal function(forEach(), anyMatch()). Note a stream can only be used once(i.e only one terminal operation can be performed on a stream)
 
 #####Transforming a Stream
 ```Function<? super T,? extends R> mapper``` performs an operation on a stream and extracts objects.
