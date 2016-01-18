@@ -29,7 +29,7 @@ interface INewInterface{
 ```
 
 ####Functional interfaces
-A funtional interface is an interface that contain **only one** abstract method. These are crucial for defining lamda expession.
+A funtional interface is an interface that contain **only one** abstract method.
 
 ```java
 @FunctionalInterface
@@ -234,7 +234,10 @@ stream().collect(Collectors.toMap());
 More methods [groupingBy(Function<? super T,? extends K>,  ](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-)
 [joining()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining--),  [partitioningBy(Predicate<? super T> predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-)
 
+###Method Reference
+Consider the following:
 
+Are lamda expressions that only call a specific method.
 
 
 
