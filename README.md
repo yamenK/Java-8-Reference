@@ -235,9 +235,27 @@ More methods [groupingBy(Function<? super T,? extends K>,  ](https://docs.oracle
 [joining()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining--),  [partitioningBy(Predicate<? super T> predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-)
 
 ###Method Reference
-Consider the following:
+Are substitutes for lamda expressions that only call a existing method.
 
-Are lamda expressions that only call a specific method.
+Consider the following way print a list:
+```java
+list.foreach(i -> System.out.println(i));
+```
+Since the lamda expression only calls a predefined method, the above can be simplified using method references to the following:
+```java
+list.foreach(System.out::println)
+```
+
+Method refrences are of four types:
+
+| Kind                                                    | Lamda Version         | Mathod reference  |
+| --------------------------------------------------------|:-------------|:-----------------|
+| Reference to a static method                            | (param) -> ClassName.staticMethod(param) |ClassName::staticMethod |
+| Reference to an instance method of a particular object  | (param) -> instanceObject.method(param)   |instanceObject::method|
+| Reference to an instance method of an arbitrary object of a particular type	 | (p)-> p.methodInClassOfTypeP()|P::methodInClassP() |
+| Reference to a constructor	| (param) -> new P(param)| P::new
+
+
 
 
 
