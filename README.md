@@ -86,7 +86,7 @@ Implementor i = new Implementor();
 ```
 
 ```java 
-IFuntionalInterface i = new Implementor(){
+IFuntionalInterface i = new IFuntionalInterface(){
   @Override                                                            
   public R funtion(S s, T t){
     //do sum stuff example
@@ -124,7 +124,7 @@ for(E e: myCollection){
   }
 }
 ```
-With the introduction of streams this can be reduced to a more funtional style code.
+With the introduction of streams this can be reduced to a more functional style code.
 ```java
 myColletion.stream()
           .filter(e -> meetsCondition1(e))
@@ -153,7 +153,7 @@ public interface Consumer<T> {
 }
 ```
 
-**Function**: similar to a a Consumer but return a non void type.
+**Function**: similar to a Consumer but return a non void type.
 ```java
 @FunctionalInterface
 public interface Function<T,R> {
@@ -184,7 +184,7 @@ public interface BiPredicate<T, U> {
 }
 ```
 
-**Unary Operator**: A special case of ```Funtion``` interface returning the same type as the input
+**Unary Operator**: A special case of ```Function``` interface returning the same type as the input
 ```java
 @FunctionalInterface
 public interface UnaryOperator<T> extends Function<T,T> {
@@ -198,13 +198,15 @@ public interface UnaryOperator<T> extends Function<T,T> {
 A Stream is a sequence of elements supporting a set of sequential and parallel operations. A stream is formed from a collection that represents the source of the stream. A set of intermediate operations(filter(), map(), peek()) is performed on a stream and ended by a terminal function(forEach(), anyMatch()). Note a stream can only be used once(i.e only one terminal operation can be performed on a stream)
 
 #####Transforming a Stream
-```Function<? super T,? extends R> mapper``` performs an operation on a stream and extracts objects.
+```map(Function<? super T,? extends R>) mapper``` performs an operation on a stream and extracts objects.
 
 #####Peeking
-```peek(Consumer<? super T> action)``` performs an action on the stream and return the elements.
+```peek(Consumer<? super T> action)``` performs an action on the elements of the stream and returns the stream.
 
 #####Searching
-```findFirst(), allMatch()``` ...
+```findFirst()```returns the first element in the stream.
+
+``` allMatch(Predicate<? super T> predicate) ```returns if all the elements in the stream match the predicate.
 
 #####Optional Class
 ```Optional<T>``` A new class that has been introduced to facillate the usual way for guarding against NPE. This class is a wrapper for an object. It may contain a null value. Check javadoc for main methods [isPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#isPresent--), [ifPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#ifPresent-java.util.function.Consumer-), [orElse()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#orElse-T-)
