@@ -239,7 +239,7 @@ More methods [groupingBy(Function<? super T,? extends K>,  ](https://docs.oracle
 ###Method Reference
 Are substitutes for lamda expressions that only call a existing method.
 
-Consider the following way print a list:
+Consider the following way to print a list:
 ```java
 list.foreach(i -> System.out.println(i));
 ```
@@ -250,12 +250,26 @@ list.foreach(System.out::println)
 
 Method refrences are of four types:
 
-| Kind                                                    | Lamda Version         | Mathod reference  |
+| Kind                                                    | Equivalent Lamda Version         | Method reference  |
 | --------------------------------------------------------|:-------------|:-----------------|
 | Reference to a static method                            | (param) -> ClassName.staticMethod(param) |ClassName::staticMethod |
 | Reference to an instance method of a particular object  | (param) -> instanceObject.method(param)   |instanceObject::method|
-| Reference to an instance method of an arbitrary object of a particular type	 | (p)-> p.methodInClassOfTypeP()|P::methodInClassP() |
+| Reference to an instance method of an arbitrary object of a particular type	 | (p)-> p.methodInClassOfTypeP()|P::methodInClassOfTypeP() |
 | Reference to a constructor	| (param) -> new P(param)| P::new
+
+
+###Date and Time API
+Java 8 introduced an improved date and time api in java.time. The new api solves concurency issues with the old java.util.Date by making all value classes immutable.
+
+```LocalDate``` represents a date without a time zone. ex:2015-01-12
+
+```LocalTime``` represents a time without a time zone. ex:03:22:55
+
+```LocalDateTime``` a combination of LocalDate and LocalTime.
+
+#####Time zones:
+
+```ZoneId``` is an identifier for a region such as Asia/Tokyo.
 
 
 
