@@ -104,7 +104,7 @@ IFuntionalInterface i = (s,t) -> {
 ```
 
 ####Scopes in Lambda expressions
-Similar to anonymous inner classes, class variables can be accessed and changed. Local variables need to be implicitly final.
+Similar to anonymous inner classes, class variables can be accessed and changed. Local variables need to be effectively final.
 
 ####Collections, Streams, and Filters
 
