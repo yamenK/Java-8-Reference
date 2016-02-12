@@ -1,5 +1,5 @@
 # Java8 Reference
-This is my own reference to the new contructs and features in java 8
+This is my own reference to the new constructs and features in java 8
 
 ## Interfaces and Lambda Expressions
 #### Default methods in interfaces
@@ -46,7 +46,7 @@ interface IFuntionalInterface<R,S,T>{
 Note that the ```@FunctionalInterface``` is for the compiler to ensure that the interface only declares one abstract method.  
 
 ####Lamda expressions
-Consider the naive way of creating a thread. 
+Consider the direct way to create a thread. 
 
 ```java
 new Thread(new Runnable() {
@@ -57,7 +57,7 @@ new Thread(new Runnable() {
       }
     }).start();
 ```
-Runnable is a funtional interface. Thus in java 8 the above code is equivalent to using the following lamda expression.
+Runnable is a functional interface. Thus in java 8 the above code is equivalent to using the following lamda expression.
 
 ```java
 new Thread(()->{        
@@ -102,6 +102,9 @@ IFuntionalInterface i = (s,t) -> {
     return r;
 };
 ```
+
+####Scopes in Lambda expressions
+Similar to anonymous inner classes, class variables can be accessed and changed. Local variables need to be implicitly final.
 
 ####Collections, Streams, and Filters
 
@@ -209,7 +212,8 @@ A Stream is a sequence of elements supporting a set of sequential and parallel o
 ``` allMatch(Predicate<? super T> predicate) ```returns if all the elements in the stream match the predicate.
 
 #####Optional Class
-```Optional<T>``` A new class that has been introduced to facillate the usual way for guarding against NPE. This class is a wrapper for an object. It may contain a null value. Check javadoc for main methods [isPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#isPresent--), [ifPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#ifPresent-java.util.function.Consumer-), [orElse()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#orElse-T-)
+```Optional<T>``` A new class that has been introduced to facillate the usual way for guarding against NPE. This class is a wrapper for an object. It may contain a null value. Check javadoc for main methods [isPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#isPresent--),
+[ifPresent(Consumer<? super T> consumer)](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#ifPresent-java.util.function.Consumer-), [orElse()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#orElse-T-)
 
 #####Stream Aggregation Methods
 ```count()``` return number of elements in stream
@@ -233,7 +237,7 @@ A Stream is a sequence of elements supporting a set of sequential and parallel o
 stream().collect(Collectors.toList());
 stream().collect(Collectors.toMap());
 ```
-More methods [groupingBy(Function<? super T,? extends K>,  ](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-)
+More methods [groupingBy(Function<? super T,? extends K>),  ](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-)
 [joining()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining--),  [partitioningBy(Predicate<? super T> predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-)
 
 ###Method Reference
