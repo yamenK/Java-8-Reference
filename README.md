@@ -18,7 +18,7 @@ interface INewInterface{
 }
 ```
 
-####Static methods in interfaces
+#### Static methods in interfaces
 Java 8 allows static methods in interfaces. These can be used as helper methods.
 ```java
 interface INewInterface{
@@ -28,7 +28,7 @@ interface INewInterface{
 }
 ```
 
-####Functional interfaces
+#### Functional interfaces
 A funtional interface is an interface that contain **only one** abstract method.
 
 ```java
@@ -45,7 +45,7 @@ interface IFuntionalInterface<R,S,T>{
 ```
 Note that the ```@FunctionalInterface``` is for the compiler to ensure that the interface only declares one abstract method.  
 
-####Lamda expressions
+#### Lamda expressions
 Consider the direct way to create a thread. 
 
 ```java
@@ -103,22 +103,22 @@ IFuntionalInterface i = (s,t) -> {
 };
 ```
 
-####Scopes in Lambda expressions
+#### Scopes in Lambda expressions
 Similar to anonymous inner classes, class variables can be accessed and changed. Local variables need to be effectively final.
 
-####Collections, Streams, and Filters
+#### Collections, Streams, and Filters
 
-#####Iterating collections
+##### Iterating collections
 
 Java8 has added a new method to the Iterable interface; ```forEach(Consumer<? super T> action)``` to simplify the job of iterating over a collection.
 
 ```java
 myCollection.forEach(e ->System.out.println(e));
 ```
-####Streams
+#### Streams
 ```java.util.stream``` package in particluar the ```Stream``` interface adds functional-style operations.
 
-####Filters
+#### Filters
 The direct way to loop over a collection and perform some actions on some elements
 ```java
 for(E e: myCollection){
@@ -138,7 +138,7 @@ myColletion.stream()
 Note: Operations on streams are lazy. They are only executed when a **Terminal operation** such as the ```forEach```is called. Non-terminal operations are refered to as intermediate operations.
 
 
-####Lambda Built-in Functional Interfaces
+#### Lambda Built-in Functional Interfaces
 **Predicate**: an expression that returns a boolean.
 ```java
 @FunctionalInterface
@@ -196,26 +196,26 @@ public interface UnaryOperator<T> extends Function<T,T> {
 }
 ```
 
-####Lamda Operations
+#### Lamda Operations
 
 A Stream is a sequence of elements supporting a set of sequential and parallel operations. A stream is formed from a collection that represents the source of the stream. A set of intermediate operations(filter(), map(), peek()) is performed on a stream and ended by a terminal function(forEach(), anyMatch()). Note a stream can only be used once(i.e only one terminal operation can be performed on a stream)
 
-#####Transforming a Stream
+##### Transforming a Stream
 ```map(Function<? super T,? extends R>) mapper``` performs an operation on a stream and extracts objects.
 
-#####Peeking
+##### Peeking
 ```peek(Consumer<? super T> action)``` performs an action on the elements of the stream and returns the stream.
 
-#####Searching
+##### Searching
 ```findFirst()```returns the first element in the stream.
 
 ``` allMatch(Predicate<? super T> predicate) ```returns if all the elements in the stream match the predicate.
 
-#####Optional Class
+##### Optional Class
 ```Optional<T>``` A new class that has been introduced to facillate the usual way for guarding against NPE. This class is a wrapper for an object. It may contain a null value. Check javadoc for main methods [isPresent()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#isPresent--),
 [ifPresent(Consumer<? super T> consumer)](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#ifPresent-java.util.function.Consumer-), [orElse()](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#orElse-T-)
 
-#####Stream Aggregation Methods
+##### Stream Aggregation Methods
 ```count()``` return number of elements in stream
 
 ```max(Comparator<? super T> comparator)```Returns max element in stream
@@ -223,14 +223,14 @@ A Stream is a sequence of elements supporting a set of sequential and parallel o
 ```min(Comparator<? super T> comparator)```Returns min element in stream
 
 
-#####Sorting
+##### Sorting
 ```sorted()``` Sorts the stream
 
 ```sorted(Comaprator<? super T> comparator)``` Sorts the stream
 
 ```reversed()``` Reverses the stream
 
-#####Collecting data from stream
+##### Collecting data from stream
 ```collect(Collector<? super T,A,R> collector)``` 
 
 ```java
@@ -240,7 +240,7 @@ stream().collect(Collectors.toMap());
 More methods [groupingBy(Function<? super T,? extends K>),  ](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#groupingBy-java.util.function.Function-)
 [joining()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#joining--),  [partitioningBy(Predicate<? super T> predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#partitioningBy-java.util.function.Predicate-)
 
-###Method Reference
+### Method Reference
 Are substitutes for lamda expressions that only call a existing method.
 
 Consider the following way to print a list:
@@ -262,7 +262,7 @@ Method refrences are of four types:
 | Reference to a constructor	| (param) -> new P(param)| P::new
 
 
-###Date and Time API
+### Date and Time API
 Java 8 introduced an improved date and time api in java.time. The new api solves concurency issues with the old java.util.Date by making all value classes immutable.
 
 ```LocalDate``` represents a date without a time zone. ex:2015-01-12
@@ -271,7 +271,7 @@ Java 8 introduced an improved date and time api in java.time. The new api solves
 
 ```LocalDateTime``` a combination of LocalDate and LocalTime.
 
-#####Time zones:
+##### Time zones:
 
 ```ZoneId``` is an identifier for a region such as Asia/Tokyo.
 
